@@ -7,3 +7,13 @@
     yum: 
       name: httpd
       state: latest
+  - name: Apache enabled and running
+    systemd:
+      name: httpd
+      state: started
+      enabled: yes
+
+  - name: copy index.html
+    copy:
+      src: ~/ansible/index.html
+      dest: /var/www/html/

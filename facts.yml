@@ -1,0 +1,7 @@
+---
+- name: output facts
+  hosts: centos
+  tasks:
+  - name: prints ansible facts
+    debug: 
+      msg: the default ip address of {{ansible_fqdn}} is {{ansible_eth1.ipv4.address}}

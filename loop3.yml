@@ -1,0 +1,14 @@
+---
+- name: hash demo
+  hosts: centos
+  become: yes
+  tasks: 
+  - name: create user
+    user: 
+      name: "{{item.name}}"
+      shell: "{{item.shell}}"
+      groups: "{{item.groups}}"
+      comment: "{{item.comment}}"
+    loop:
+    - {name: joe, shell: /bin/zsh, groups: wheel, comment: "Joe Doe"}
+    - {name: jane, shell: /bin/bash, groups: root, comment: "Jane Doe"}
